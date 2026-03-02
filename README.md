@@ -10,5 +10,5 @@ Controle de CO2 no processo de fermentação de vinhos tintos.
 - Mariana Xavier
 - Milena Amorim
 - Andy Araujo
-- Matheus de Palma
+- Gabriel Matias
 - Miguel Soneti
