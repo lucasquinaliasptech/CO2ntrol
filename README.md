@@ -1,4 +1,4 @@
-# CO2ntrol
+# CO₂ntrol
 
 ## Sobre o projeto
 
