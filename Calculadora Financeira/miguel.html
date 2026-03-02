@@ -6,8 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Calculadora financeira da CO²ntrol</h1>
+    <br><span>informe a quantidade produzida no ultimo mês de vinho(em litros)</span>
+    <input type="text" id="ipt_qtdTotal"><br><br>
+    <span>informe o custo de produção por litro até a fermentação</span>
+    <input type="text" id="ipt_custo"><br><br>
+    <span>informe quantidade perdida no ultimo mês durante a fermentação (em litros)</span>
+    <input type="text" id="ipt_qtdPerdida"><br><br>
+    <button onclick="mostrarMensagem()">mostrar prejuizo</button>
+    <div id="div_mensagem"></div>
 </body>
 </html>
 <script>
+    function mostrarMensagem(){
+        let quantidade = Number(ipt_qtdTotal.value);
+        let custo = Number(ipt_custo.value) * Number(ipt_qtdTotal.value);
+        let perda = Number(ipt_qtdPerdida.value);
+        let percent = perda / quantidade * 100;
+        let custotot = custo * percent / 100;
+
+        div_mensagem.innerHTML = "com base nos dados informados percebece: <br><br><br>"
+        div_mensagem.innerHTML += "a sua perda é de " + percent + "%<br><br><br>"
+        div_mensagem.innerHTML += "e esses " + percent + "% custa R$" + custotot
+
+    }
 </script>
