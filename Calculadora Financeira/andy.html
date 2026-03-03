@@ -6,6 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>quanto você perde?</h1>
+    <span>insira quantidade de litros por foudre</span><br>
+    <input type="text" id="idvinho"><br>
+    <span>insira quantidade de foudre</span><br>
+    <input type="text" id="idfoudre"><br>
+    <span>preço do seu vinho</span><br>
+    <input type="text" id="idpreço">
+    <button onclick="vinho()"> 
+        dinheiro que pede se der errado
+    </button>
+    <div id="div_div"></div>
 </body>
 </html>
+<script>
+    function vinho(){
+        let perda = Number(idvinho.value) * Number(idfoudre.value) * Number(idpreço.value)
+        div_div.innerHTML = "<h2><span style ='color:red'> você pode perder R$" + perda
+    }
+</script>
