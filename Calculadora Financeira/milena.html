@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Simulador Financeiro - CO2NTROL </title>
 </head>
-<body>
+
+<style>
+
+    body {
+        margin: 20px;
+    }
+
+    #calculo {
+        display: flex;
+        flex-direction: column;
+        width: 34.5%;
+    }
+
+    span {
+        margin-top: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
     
+</style>
+<body>
+    <h1>Simulador Financeiro da CO2NTROL</h1>
+
+    <div id="calculo">
+        <span>Quantidade de tanques:</span>
+        <input type="text" id="qnt_tanque">
+        <span>Capacidade do tanque (em litros):</span>
+        <input type="text" id="cp_tanque">
+        <span>Valor da garrafa de vinho tinto p/litro (R$):</span>
+        <input type="text" id="valor_vinho">
+        <span>Valor investido com a produção das uvas:</span>
+        <input type="text" id="valor_investido">
+        <button onclick="verificar()">Realizar cálculo</button>
+    </div>
+
+    <br>
+    <div id="exibir"></div>
 </body>
 </html>
+
+<script>
+
+    function verificar() {
+
+        let tanques = Number(qnt_tanque.value);
+        let investimento = Number(valor_investido.value);
+        let prejuizoPorTanque = Number(cp_tanque.value) * Number(valor_vinho.value);
+        let prejuizoTotal = ((prejuizoPorTanque * tanques) + investimento);
+
+        exibir.innerHTML = '';
+
+        exibir.innerHTML = 'Prejuízo por tanque: R$ ' + prejuizoPorTanque.toFixed(2) +
+        '<br> Sem monitoramento, sua vinicula pode perder até R$: ' + prejuizoTotal.toFixed(2);
+    }
+
+</script>
