@@ -6,6 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    
+       <h1>Simulador financeiro CO²NTROL </h1>
+    <h3>Feito com o intuito de auxiliar vinícolas em sua perda e ganho de dinheiro</h3>
+        <br>
+            <h2>Insira quantia investida em sua vinícola</h2>
+                <input type="text" id="ipt_inv">
+            <h2>Insira quantia de litros produzidos por foldre/tanque</h2>
+                <input type="text" id="ipt_litros">
+            <h2>Insira quantos litros foram perdidos no ultimo mês</h2>
+                <input type="text" id="ipt_perdas">
+        <br> 
+
+    <button onclick="calcular()">Calcular finanças</button>  
+    <button onclick="resetar()">Resetar resultado</button>
+
+        <div id="div_quantia" ></div>
+        <div id="div_quantia2"></div>
 </body>
 </html>
+<script>
+
+    function calcular(){
+       let reais = (Number(ipt_litros.value)*15)
+        
+       let perda = (Number(ipt_inv.value) - reais)
+
+       let ano = (perda*12)
+        div_quantia.innerHTML = ''
+          if  (perda <0){
+       div_quantia.innerHTML = '<br>Sua empresa está perdendo '+(perda-perda-perda)+' R$ por mês!'
+       div_quantia2.innerHTML = '<span style = "color: red">Em 12 meses, será perdido '+(ano-ano-ano) +' R$!</span>'
+       } else {
+       div_quantia.innerHTML = 'Sua empresa não contem perdas'
+       }
+    }
+       
+     function resetar(){
+        div_quantia.innerHTML = ''
+        div_quantia2.innerHTML =''
+}
+   
+</script>
