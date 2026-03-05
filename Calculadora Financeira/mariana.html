@@ -6,6 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>Simulador financeiro</h2>
+    Quantidade de foudres:
+    <input type="text" id="qtd_foudres"><br>
+    Média de litros por foudre:
+    <input type="text" id="litro_foudre"><br>
+    Valor médio do litro de vinho:
+    <input type="text" id="valor_litro"><br>
+    Quantidade média perdida por foudre:
+    <input type="text" id="perda_foudre"><br>
+
+    <button onclick="envio()">Calcular</button>
+    <div id="mensagem"></div>
+
 </body>
 </html>
+
+<script>
+    function envio() {
+
+        let qtdTotal = Number(qtd_foudres.value) * Number(litro_foudre.value)
+        let valor = Number(valor_litro.value)
+        let perda = (Number(perda_foudre.value))/100
+        
+        let litrosPerdidos = (qtdTotal * perda)
+        let valorPerdido1 = litrosPerdidos * valor
+
+        mensagem.innerHTML = "A quantidade de vinho produzido é " + qtdTotal + "<br> Perde R$" + valorPerdido1 + ' por safra';
+    }
+
+</script>
