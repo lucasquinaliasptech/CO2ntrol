@@ -6,6 +6,45 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <img src="logo black.png" alt="Logo CO2ntrol" style="width: 30%;">
+    <br>
+    <h1>Calculadora Financeira</h1>
+    <h3>Para calcular o possível prejuízo que o uso do CO₂ntrol evita, utilize a calculadora abaixo.</h3>
+    <p>Insira a quantidade de locais de armazenamento que sua vinícola possui (foudres ou tanques):</p>
+    <input type="text" id="ipt_armazenamento">
+    <p>Insira a capacidade média de armazenamento de vinho de seus foudres ou tanques (em litros):</p>
+    <input type="text" id="ipt_capacidade">
+    <p>Insira o valor médio do litro de vinho tinto produzido em sua vinícola (em R$):</p>
+    <input type="text" id="ipt_valor_litro">
+    <p>Insira o custo do cultivo do ciclo das uvas utilizadas na produção do vinho (em R$):</p>
+    <input type="text" id="ipt_custo_cultivo">
+    <p>Insira o tempo gasto (em meses) entre o cultivo da uva e a produção do vinho:</p>
+    <input type="text" id="ipt_tempo_gasto">
+    <br>
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="p_resultado"></p>
 </body>
 </html>
+<script>
+    function calcular() {
+        let armazenamento = Number(ipt_armazenamento.value);
+        let capacidade = Number(ipt_capacidade.value);
+        let valorLitro = Number(ipt_valor_litro.value);
+        let custoCultivo = Number(ipt_custo_cultivo.value);
+        let tempoGasto = ipt_tempo_gasto.value;
+
+        let capacidadeTotal = armazenamento * capacidade;
+        let prejuizoPorArmazenamento = (capacidade * valorLitro) + (custoCultivo / armazenamento);
+        let prejuizoTotal = (capacidadeTotal * valorLitro) + custoCultivo;
+
+        p_resultado.innerHTML = `
+        <h2>
+            A utilização do CO₂ntrol em sua vinícola irá evitar a perda de R$ <strong>${prejuizoTotal.toLocaleString('pt-BR')} em prejuízo total.</strong><br>
+        </h2>
+        <h3>
+            Por foudre/tanque, serão evitados R$ ${prejuizoPorArmazenamento.toLocaleString('pt-BR')} em possíveis prejuízos.<br>
+            Além da prevenção de perda financeira entre o cultivo das uvas e a produção do vinho, também serão economizados ${tempoGasto} meses de cultivo das uvas.
+        </h3>`;
+    }
+</script>
