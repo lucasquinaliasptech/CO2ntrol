@@ -14,10 +14,11 @@ create table usuario (
 
 insert into usuario (nome_fantasia, razao_social, cnpj, telefone, email, senha, situacao)
 	values
-		('Miolo', 'Miolo Wine Group Vitivinicultura S.A', '09357838000101', '542105-1500', 'miolowine@gmail.com', '#$123456', 1),
-		('Aurora', 'Cooperativa Vinícola Aurora Ltda', '87547188000170.', '5421022000', 'aurora@gmail.com', '#29103@1', 1),
-		('Guaspari', 'Industria e Comercio de Vinhos Guaspari Ltda', '11005453000127', '193661-9198', 'guaspari@gmail.com', '83298#00', 1),
+		('Miolo', 'Miolo Wine Group Vitivinicultura S.A', '09357838000101', '5421051500', 'miolowine@gmail.com', '#$123456', 1),
+		('Aurora', 'Cooperativa Vinícola Aurora Ltda', '87547188000170', '5421022000', 'aurora@gmail.com', '#29103@1', 1),
+		('Guaspari', 'Industria e Comercio de Vinhos Guaspari Ltda', '11005453000127', '1936619198', 'guaspari@gmail.com', '83298#00', 1),
 		('Góes', 'Vinícola Góes', '57563334000190', '11966666666', 'goes@gmail.com', '@9202uAJ', 1);
+        
                     
 create table endereco (
 	id int primary key auto_increment,
@@ -41,23 +42,23 @@ create table armazenamento (
 	id int primary key auto_increment,
     id_usuario int not null,
     tipo varchar(20) check (tipo in ('FOUDRE', 'TANQUE')) not null,
-    capacidade decimal(10000,2) not null,
-    nivel_carbono_ideal decimal(100,2) not null,
+    capacidade decimal(10,2) not null,
+    nivel_carbono_ideal decimal(10,2) not null,
     utilizacao tinyint check (utilizacao in (0,1)) not null
 );
 
 insert into armazenamento (id_usuario, tipo, capacidade, nivel_carbono_ideal, utilizacao)
 	values
-		(1, 'TANQUE', 50000.00, 0.20, 1),
-		(1, 'FOUDRE', 20000.00, 0.30, 1),
-		(2, 'TANQUE', 30000.00, 0.40, 1),
-		(3, 'TANQUE', 10000.00, 0.20, 1),
-		(4, 'FOUDRE', 40000.00, 0.30, 1);
+		(1, 'TANQUE', 50000, 0.20, 1),
+		(1, 'FOUDRE', 20000, 0.30, 1),
+		(2, 'TANQUE', 30000, 0.40, 1),
+		(3, 'TANQUE', 10000, 0.20, 1),
+		(4, 'FOUDRE', 40000, 0.30, 1);
 
 create table sensor (
 	id int primary key auto_increment,
     id_armazenamento int not null,
-    nivel_carbono decimal (100,2),
+    nivel_carbono decimal (10,2),
     data_registro datetime default current_timestamp(),
     situacao tinyint check (situacao in (0, 1))
 );
@@ -69,5 +70,10 @@ insert into sensor (id_armazenamento, nivel_carbono, situacao)
 		(2, 0.20, 1),
 		(3, 0.30, 1),
 		(4, 0.20, 1),
-		(5, 0.40, 1);
+		(5, 0.60, 1);
 
+
+select * from usuario;
+select * from endereco;
+select * from armazenamento;
+drop database CO2ntrol;
