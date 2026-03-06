@@ -28,8 +28,9 @@ create table armazenamento (
 	id int primary key auto_increment,
     id_usuario int not null,
     tipo varchar(20) check (tipo in ('FOUDRE', 'TANQUE')) not null,
-    capacidade decimal(10000,2) not null,
-    nivel_carbono_ideal decimal(100,2) not null,
+    capacidade decimal(1000,2) not null,
+    nivel_carbono_min decimal(10,2) not null,
+    nivel_carbono_max decimal(10,2) not null,
     utilizacao tinyint check (utilizacao in (0,1)) not null
 );
 
