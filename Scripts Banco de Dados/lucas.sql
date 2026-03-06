@@ -40,3 +40,5 @@ create table sensor (
     data_registro datetime default current_timestamp(),
     situacao tinyint check (situacao in (0, 1))
 );
+
+
