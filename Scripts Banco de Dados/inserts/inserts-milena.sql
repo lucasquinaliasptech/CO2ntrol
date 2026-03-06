@@ -76,4 +76,5 @@ insert into sensor (id_armazenamento, nivel_carbono, situacao)
 select * from usuario;
 select * from endereco;
 select * from armazenamento;
+select * from sensor;
 drop database CO2ntrol;
