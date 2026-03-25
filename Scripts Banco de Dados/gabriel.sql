@@ -11,10 +11,10 @@ alter table vinicolas modify CNPJ varchar(55);
 desc vinicolas;
 
 insert vinicolas
-values(1, 'Vinícola Aurora','87.547.188/0001-70','Jardim Marilu', 'Ativa'),
-	    (2, 'Vinícola Almadén', '09.357.838/0013-45', 'Santana do Livramento', 'Ativa'),
-      (3, 'Casa Valduga', '87.848.180/0001-44', 'Bento Gonçalves', 'Ativa'),
-      (4, 'Vinícola Góes', '49.559.487/0001-36', 'Estrada do Vinho', 'Ativa');
+values(1, 'Vinícola Aurora','11.111.111/1111-11','Rua', 'Ativa'),
+	    (2, 'Vinícola Almadén', '22.222.222/2222-22', 'Rua_santos', 'Ativa'),
+      (3, 'Casa Valduga', '33.333.333/3333-33', 'Rua_tetiane', 'Ativa'),
+      (4, 'Vinícola Góes', '44.444.444/4444-44', 'Estrada', 'Ativa');
 
 select * from vinicolas;
 
